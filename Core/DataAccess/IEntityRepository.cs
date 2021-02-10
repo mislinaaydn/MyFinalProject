@@ -1,10 +1,11 @@
-﻿using Entities.Abstract;
+﻿
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     //class: referans tip 
     //IEntity olabilir veya IEntity implemente eden bir nesne olabilir.
