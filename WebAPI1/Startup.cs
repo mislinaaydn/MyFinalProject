@@ -46,7 +46,7 @@ namespace WebAPI
             //services.AddSingleton<IProductService,ProductManager>();
             //services.AddSingleton<IProductDal, EfProductDal>();
 
-            
+            services.AddCors();
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -79,9 +79,13 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.UseCors(builder =>builder.WithOrigins("https://localhost:44334").AllowAnyHeader().AllowAnyOrigin());
+            
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseRouting(); //resimleri alamazsin boyle
 
             app.UseAuthentication();
 
@@ -91,7 +95,7 @@ namespace WebAPI
             {
                 endpoints.MapControllers();
             });
-            //23.10 dersteyiz
+            
         }
     }
 }

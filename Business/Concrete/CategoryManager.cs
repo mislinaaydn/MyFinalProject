@@ -14,17 +14,19 @@ namespace Business.Concrete
 
         public CategoryManager(ICategoryDal categoryDal)
         {
-           _categoryDal = categoryDal;
+            _categoryDal = categoryDal;
         }
 
-        public IDataResult<List<Category> >GetAll()
+        public IDataResult<List<Category>> GetAll()
         {
-            return new SuccessDataResult<List<Category>>( _categoryDal.GetAll());
+            //İş kodları
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll());
         }
 
+        //Select * from Categories where CategoryId = 3
         public IDataResult<Category> GetById(int categoryId)
         {
-            return new SuccessDataResult<Category>( _categoryDal.Get(c => c.CategoryId == categoryId));
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == categoryId));
         }
     }
 }

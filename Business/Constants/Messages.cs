@@ -18,5 +18,7 @@ namespace Business.Constants
 
         public static string CategoryLimitExcede = "Kategori limiti aşıldığı için yeni ürün eklenemiyor";
         public static string AuthorizationDenied ="yetkin yok";
+
+        public static string ProductNameAlreadyExists { get; internal set; }
     }
 }
